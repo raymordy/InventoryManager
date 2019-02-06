@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28516.95
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Web", "Inventory.Web\Inventory.Web.csproj", "{7BA98E0B-C4CB-48CE-83F0-31FFCE5B9409}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Data", "Inventory.Data\Inventory.Data.csproj", "{1122A944-0943-4ECB-8970-26C29C15A6DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BA98E0B-C4CB-48CE-83F0-31FFCE5B9409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BA98E0B-C4CB-48CE-83F0-31FFCE5B9409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BA98E0B-C4CB-48CE-83F0-31FFCE5B9409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BA98E0B-C4CB-48CE-83F0-31FFCE5B9409}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1122A944-0943-4ECB-8970-26C29C15A6DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1122A944-0943-4ECB-8970-26C29C15A6DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1122A944-0943-4ECB-8970-26C29C15A6DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1122A944-0943-4ECB-8970-26C29C15A6DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A04058EE-EB14-4C25-8CE3-2A84EB2A15B4}
+	EndGlobalSection
+EndGlobal
