@@ -8,7 +8,8 @@ namespace Inventory.Data.Models
     public class Asset
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
+        [Required(ErrorMessage = "Description is required")]
         public string Description { get; set; }
         public DateTime? PurchaseDate { get; set; }
         public Vendor Vendor { get; set; }
