@@ -3,11 +3,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace Inventory.Web
 {
@@ -38,15 +37,15 @@ namespace Inventory.Web
                 options.UseSqlServer(connection, 
                     b => b.MigrationsAssembly("Inventory.Data")));
 
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddDefaultUI(UIFramework.Bootstrap4)
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddControllersWithViews();
+            services.AddRazorPages();
 
-            //.SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -62,15 +61,18 @@ namespace Inventory.Web
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy();
+
+            app.UseRouting();
 
             app.UseAuthentication();
+            app.UseAuthorization();
 
-            app.UseMvc(routes =>
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
